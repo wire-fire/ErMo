@@ -39,10 +39,9 @@ void loop() {
     //Serial.print(numStore);
     delay(4); //SYNCHRONIZED STABILITY TIMER
   }
-  else if (c="}")
-  {
-    Serial.println(numStore);
-    /*delay(50);//SYNCHRONIZED STABILITY DELAY
+ 
+    //Serial.println(numStore);
+    delay(20);//SYNCHRONIZED STABILITY DELAY
     ind1 = numStore.indexOf("{"); //Finds { index
     ind2 = numStore.indexOf(","); //Finds , index
     ind3 = numStore.indexOf("}"); //Finds } index
@@ -55,9 +54,8 @@ void loop() {
     Serial.println(ch2Width);
     numStore = " ";
     ch1Width = map(x, 0, 99, 1000, 2000);
-    ch2Width = map(y, 0, 99, 1000, 2000);
+    ch2Width = map(y, 0, 99, 1200, 1800);
     ch1.writeMicroseconds(ch1Width);
     ch2.writeMicroseconds(ch2Width);
-    */
-  }
+
 }
