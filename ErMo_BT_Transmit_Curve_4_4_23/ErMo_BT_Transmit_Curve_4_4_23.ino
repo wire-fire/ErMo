@@ -33,10 +33,13 @@ void setup()
   BTserial.print("AT");
   delay(1000);
   BTserial.print("AT+CO094A9A83AED70");
+  Serial.println("Conn1");
   delay(1000);
   BTserial.print("AT+CO094A9A83AED70");
+  Serial.println("Conn2");
   delay(1000);
   BTserial.print("AT+CO094A9A83AED70");
+  Serial.println("Conn3");
   storedX = map(analogRead(x), 0, 1023, lowerRange, upperRange);
   storedY = map(analogRead(y), 0, 1023, lowerRange, upperRange);
 }
