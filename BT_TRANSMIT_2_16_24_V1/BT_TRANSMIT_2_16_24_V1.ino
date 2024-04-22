@@ -1,18 +1,18 @@
 #include <AltSoftSerial.h>
 AltSoftSerial BTserial;
-int x = A0;
-int y = A1;
-int intensityPin = A2;
+int x = A0; //Joystick x-axis pin 
+int y = A1; //Joystick y-axis pin
+int intensityPin = A2; //Intensity adjustment 
 int joystickX = 0; //Holds joystick x value for transmission (STEERING)
 int joystickY = 0; //Holds joystick y value for transmission (THROTTLE)
 int intensity = 0; //Holds intensity potentiometer value
 int storedX = 0; //Holds analog value for curve
 int storedY = 0; //Holds analog value for curve
 int scaleFactor = 10; //Variable for scaling output
-int steeringMax = 1600;
+int steeringMax = 1600; 
 int steeringMin = 1400;
-int throttleMax = 2000;
-int throttleMin = 1000;
+int throttleMax = 1700;
+int throttleMin = 1300;
 
 void setup() {
   // put your setup code here, to run once:
@@ -45,16 +45,16 @@ void loop() {
   Serial.println(intensity);
 
   //Acceleration Curve
-  if (joystickX > storedX) { //If joystick value is larger than stored value (X)
+  if (joystickX > storedX) { //If joystick value is larger than stored value (X) STEERING
     storedX += (scaleFactor + intensity);
   }
   else if (joystickX < storedX) {
-    storedX -= (scaleFactor + intensity);
+    storedX -= (scaleFactor + intensity); 
   }
   else {
     storedX = storedX;
   }
-  if (joystickY > storedY) { //If joystick value is larger than stored value (X)
+  if (joystickY > storedY) { //If joystick value is larger than stored value (X) THROTTLE
     storedY += (scaleFactor + intensity);
   }
   else if (joystickY < storedY) {
